@@ -116,11 +116,11 @@ export function DocumentationLayout({
                 _hover={{
                   textDecoration: "underline",
                 }}
-                href={`https://github.com/iron-fish/website/tree/master/${githubPath}`}
+                href={`https://github.com/iron-fish/FIPs/tree/master/${githubPath}`}
                 target="_blank"
                 rel="noreferrer"
               >
-                Edit Page on Github
+                View on Github
               </Text>
             </Box>
           )}
