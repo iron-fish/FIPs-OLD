@@ -1,8 +1,8 @@
-import fs from "fs";
 import { GetStaticPaths, GetStaticProps } from "next";
 import path from "path";
 import { MDXRenderer, SidebarItems } from "@/lib/ui";
 import {
+  buildSidebarByPath,
   getSidebarContent,
   parseFileByPath,
   renderMarkdown,
@@ -56,11 +56,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   const markdown = await renderMarkdown(content);
 
-  const sidebarItems = getSidebarContent(
-    sidebar,
+
+  const sidebarItems = buildSidebarByPath(
     CONTENT_PATH,
-    "/developers/documentation"
-  );
+    "/fips"
+  )
+
+  console.log(sidebarItems)
 
   return {
     props: {

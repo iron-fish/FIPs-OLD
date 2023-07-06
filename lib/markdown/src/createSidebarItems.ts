@@ -16,6 +16,16 @@ export type SidebarCategory = {
 
 export type SidebarDefinition = Array<SidebarCategory | SidebarItem>;
 
+export type SidebarReference =
+  | {
+      title: string;
+      href: string;
+    }
+  | {
+      title: string;
+      items: SidebarReference[];
+    };
+
 function buildSidebarItem(
   item: Exclude<SidebarItem, SidebarCategory>,
   contentMap: Record<string, Record<string, string>>,
@@ -32,6 +42,62 @@ function buildSidebarItem(
     title: item.label ?? contentMap[item.id].title,
     href: `${pathPrefix}/${contentMap[item.id].document}`,
   };
+}
+
+export function buildSidebarByPath(
+  contentPath: string,
+  pathPrefix: string,
+  groupBy = 'category'
+) {
+  const UNCATEGORIZED = 'UNCATEGORIZED';
+
+  const contentMap = parseNestedDir(contentPath).flat().filter((item) => item.endsWith('.mdx'))
+    .reduce<Record<string, Array<Record<string, string>>>>((acc, item) => {
+      const builtPath = path.join(contentPath, item);
+      const parsed = {
+        ...parseFileByPath(builtPath).frontMatter,
+        document: item.replace(/\.mdx?$/, ""),
+      } as Record<string, string>;
+
+      const category = parsed[groupBy] ?? UNCATEGORIZED;
+
+      if (!acc[category]) {
+        acc[category] = [];
+      }
+
+      acc[category].push(parsed);
+
+      return acc;
+    }, {});
+
+  let sidebar: SidebarReference[] = [];
+  const {
+    [UNCATEGORIZED]: uncategorized,
+    ...categories
+  } = contentMap;
+
+  if (uncategorized) {
+    sidebar = sidebar.concat(uncategorized.map((item) => {
+      return {
+        title: item.title,
+        href: `${pathPrefix}/${item.document}`,
+      }
+    }))
+  }
+
+  for (const category in categories) {
+    sidebar.push({
+      title: category,
+      items: categories[category].map((item) => {
+        return {
+          title: item.title,
+          href: `${pathPrefix}/${item.document}`,
+        }
+      })
+    })
+  }
+
+  return sidebar;
 }
 
 export function getSidebarContent(
@@ -60,16 +126,6 @@ export function getSidebarContent(
     return buildSidebar(item, contentMap, pathPrefix);
   });
 }
-
-export type SidebarReference =
-  | {
-      title: string;
-      href: string;
-    }
-  | {
-      title: string;
-      items: SidebarReference[];
-    };
 
 function buildSidebar(
   item: SidebarItem,
