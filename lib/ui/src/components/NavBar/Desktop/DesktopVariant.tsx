@@ -113,12 +113,6 @@ export function DesktopVariant({ content }: { content?: NavItems }) {
               );
             })}
       </HStack>
-      <HStack alignItems="center">
-        <Button size="lg" as={Link} href="/use/get-started">
-          <Box mr={4}>Get Started</Box>
-          <FancyArrowRight />
-        </Button>
-      </HStack>
     </>
   );
 }
