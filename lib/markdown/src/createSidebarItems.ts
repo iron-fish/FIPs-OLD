@@ -1,6 +1,7 @@
 import path from "path";
 import { parseFileByPath } from "./parseFileByPath";
 import { parseNestedDir } from "./parseNestedDir";
+import { startCase } from "lodash-es";
 
 export type SidebarLabeledItem = {
   id: string;
@@ -49,7 +50,7 @@ export function buildSidebarByPath(
   pathPrefix: string,
   groupBy = 'category'
 ) {
-  const UNCATEGORIZED = 'UNCATEGORIZED';
+  const UNCATEGORIZED = '__UNCATEGORIZED__';
 
   const contentMap = parseNestedDir(contentPath).flat().filter((item) => item.endsWith('.mdx'))
     .reduce<Record<string, Array<Record<string, string>>>>((acc, item) => {
@@ -87,7 +88,7 @@ export function buildSidebarByPath(
 
   for (const category in categories) {
     sidebar.push({
-      title: category,
+      title: startCase(category),
       items: categories[category].map((item) => {
         return {
           title: item.title,

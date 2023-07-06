@@ -62,8 +62,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     "/fips"
   )
 
-  console.log(sidebarItems)
-
   return {
     props: {
       slug: slug,
