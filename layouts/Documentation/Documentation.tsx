@@ -1,3 +1,4 @@
+import { Preamble } from "@/components/Preabmle/Preamble";
 import {
   Heading,
   Box,
@@ -20,6 +21,12 @@ type Props = {
     title?: string;
     "seo-title"?: string;
     description?: string;
+    author?: string;
+    discussion?: string;
+    status?: string;
+    category?: string;
+    created?: string;
+    requires?: string;
   };
   markdown: ComponentProps<typeof MDXRenderer>["markdown"];
   sidebarItems: SidebarItems;
@@ -107,6 +114,9 @@ export function DocumentationLayout({
           <Heading as="h1" size="2xl" mt={8} mb={16} fontWeight="medium">
             {frontMatter.title}
           </Heading>
+
+          <Preamble content={frontMatter}></Preamble>
+
           <MDXRenderer markdown={markdown} />
           {githubPath && (
             <Box textAlign="center" mt="16">
