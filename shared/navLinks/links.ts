@@ -8,25 +8,25 @@ export const links = [
       {
         title: messages.faqTitle,
         description: messages.faqDescription,
-        href: "/learn/faq",
+        href: "https://ironfish.network/learn/faq",
         image: "/images/nav/learn-mag-glass.svg",
       },
       {
         title: messages.whitepaperTitle,
         description: messages.whitepaperDescription,
-        href: "/learn/whitepaper",
+        href: "https://ironfish.network/learn/whitepaper",
         image: "/images/nav/learn-whitepaper.svg",
       },
       {
         title: messages.tokenomicsTitle,
         description: messages.tokenomicsDescription,
-        href: "/learn/tokenomics",
+        href: "https://ironfish.network/learn/tokenomics",
         image: "/images/nav/learn-tokenomics.svg",
       },
       {
         title: messages.blogTitle,
         description: messages.blogDescription,
-        href: "/learn/blog",
+        href: "https://ironfish.network/learn/blog",
         image: "/images/nav/learn-brain.svg",
       },
     ],
@@ -38,19 +38,19 @@ export const links = [
       {
         title: messages.getStartedTitle,
         description: messages.getStartedDescription,
-        href: "/use/get-started",
+        href: "https://ironfish.network/use/get-started",
         image: "/images/nav/use-book-fish.svg",
       },
       {
         title: messages.nodeAppTitle,
         description: messages.nodeAppDescription,
-        href: "/use/node-app",
+        href: "https://ironfish.network/use/node-app",
         image: "/images/nav/use-key-fish.svg",
       },
       {
         title: messages.mineIronTitle,
         description: messages.mineIronDescription,
-        href: "/use/get-started/mining",
+        href: "https://ironfish.network/use/get-started/mining",
         image: "/images/nav/use-strangely-normal-looking-fish.svg",
       },
       {
@@ -62,7 +62,7 @@ export const links = [
       {
         title: messages.ecosystemTitle,
         description: messages.ecosystemDescription,
-        href: "/use/ecosystem",
+        href: "https://ironfish.network/use/ecosystem",
         image: "/images/nav/use-ecosystem.svg",
       },
     ],
@@ -74,7 +74,7 @@ export const links = [
       {
         title: messages.documentationTitle,
         description: messages.documentationDescription,
-        href: "/developers/documentation",
+        href: "https://ironfish.network/developers/documentation",
         image: "/images/nav/dev-blowfish.svg",
       },
       {
@@ -92,13 +92,13 @@ export const links = [
       {
         title: messages.communityHighlightsTitle,
         description: messages.communityHighlightsDescription,
-        href: "/community/highlights",
+        href: "https://ironfish.network/community/highlights",
         image: "/images/nav/community-rubiks-cube.svg",
       },
       {
         title: messages.mediaTitle,
         description: messages.mediaDescription,
-        href: "/community/media",
+        href: "https://ironfish.network/community/media",
         image: "/images/nav/community-loudspeaker.svg",
       },
       {
@@ -110,7 +110,7 @@ export const links = [
       {
         title: messages.communityTitle,
         description: messages.communityDescription,
-        href: "/community/our-community",
+        href: "https://ironfish.network/community/our-community",
         image: "/images/nav/community-earth.svg",
       },
     ],
@@ -122,7 +122,7 @@ export const links = [
       {
         title: messages.aboutUsTitle,
         description: messages.aboutUsDescription,
-        href: "/company/about-us",
+        href: "https://ironfish.network/company/about-us",
         image: "/images/nav/company-submarine.svg",
       },
       // {
@@ -134,7 +134,7 @@ export const links = [
       {
         title: messages.mediaKitTitle,
         description: messages.mediaKitDescription,
-        href: "/company/media-kit",
+        href: "https://ironfish.network/company/media-kit",
         image: "/images/nav/company-vertical-fish.svg",
       },
       {

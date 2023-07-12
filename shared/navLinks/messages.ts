@@ -19,7 +19,7 @@ export const messages = defineMessages({
   },
   company: {
     id: "nav.company",
-    defaultMessage: "Company",
+    defaultMessage: "IF Labs",
   },
   faqTitle: {
     id: "nav.faqTitle",

@@ -1,5 +1,6 @@
 import { Box, Flex, HStack, List, ListItem, Text, GridItem } from "@/lib/ui";
 import Link from "next/link";
+import { NewsletterSignUp } from "../NewsletterSignUp/NewsletterSignUp";
 import { useNavLinks } from "../../shared/navLinks/useNavLinks";
 import { Circle } from "./assets/Circle";
 import { Logo } from "./assets/Logo";
@@ -43,6 +44,9 @@ export function Footer() {
       >
         {formatMessage(messages.newsletter)}
       </Text>
+      <Box mb={24} display="flex" w="100%" justifyContent="flex-start">
+        <NewsletterSignUp />
+      </Box>
       <Box
         display={{
           base: "grid",

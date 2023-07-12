@@ -120,7 +120,7 @@ export function DocumentationLayout({
                 target="_blank"
                 rel="noreferrer"
               >
-                View on Github
+                Edit on Github
               </Text>
             </Box>
           )}
