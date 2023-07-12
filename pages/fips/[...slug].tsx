@@ -3,16 +3,14 @@ import path from "path";
 import { MDXRenderer, SidebarItems } from "@/lib/ui";
 import {
   buildSidebarByPath,
-  getSidebarContent,
   parseFileByPath,
   renderMarkdown,
 } from "@/lib/markdown";
 import { ComponentProps } from "react";
 import { DocumentationLayout } from "../../layouts/Documentation/Documentation";
-import { sidebar } from "../../content/fips/sidebar";
 import { parseNestedDir } from "@/lib/markdown/src/parseNestedDir";
 
-const CONTENT_DIR = ["content", "fips"];
+const CONTENT_DIR = ["fips"];
 
 type Props = {
   slug: string;
@@ -56,11 +54,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   const markdown = await renderMarkdown(content);
 
-
-  const sidebarItems = buildSidebarByPath(
-    CONTENT_PATH,
-    "/fips"
-  )
+  const sidebarItems = buildSidebarByPath(CONTENT_PATH, "/fips");
 
   return {
     props: {

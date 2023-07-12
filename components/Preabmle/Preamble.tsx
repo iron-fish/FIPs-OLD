@@ -1,17 +1,6 @@
-import {
-  Heading,
-  Grid,
-  Box,
-  Text,
-  GridItem,
-  Container,
-  FancyArrowRight,
-  AspectRatio,
-  Flex,
-  ContainerProps,
-} from "@/lib/ui";
-import Image from "next/image";
-import Link from "next/link";
+import { Grid, Text, GridItem } from "@/lib/ui";
+
+import { Fragment } from "react";
 
 type Props = {
   content: {
@@ -35,8 +24,8 @@ export function Preamble(content: Props) {
   }
   return (
     <Grid mb="10" templateColumns="auto 1fr" gap={1}>
-      {entries.map((k) => (
-        <>
+      {entries.map((k, i) => (
+        <Fragment key={i}>
           <GridItem>
             <Text textStyle="md" fontWeight="bold">
               {k[0]}
@@ -45,7 +34,7 @@ export function Preamble(content: Props) {
           <GridItem ml="10">
             <Text textStyle="md">{k[1]}</Text>
           </GridItem>
-        </>
+        </Fragment>
       ))}
     </Grid>
   );
