@@ -1,11 +1,9 @@
-import { Flex, useBreakpointValue } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
 import { HStack } from "../../../index";
-import { DesktopVariant } from "./Desktop/DesktopVariant";
-import type { NavItems } from "./types";
-import { MobileVariant } from "./Mobile/MobileVariant";
 import { ComponentProps, useMemo } from "react";
+import type { NavItems } from "./types";
 
 type Props = {
   content?: NavItems;
@@ -15,10 +13,6 @@ type Props = {
 export const NAV_HEIGHT = "80px";
 
 export function NavBar({ content, sticky }: Props) {
-  const variant = useBreakpointValue({
-    base: "MOBILE",
-    xl: "DESKTOP",
-  });
   const positionProps = useMemo<ComponentProps<typeof Flex>>(() => {
     if (sticky) {
       return {
@@ -54,8 +48,6 @@ export function NavBar({ content, sticky }: Props) {
           />
         </Link>
       </HStack>
-      {variant === "DESKTOP" && <DesktopVariant content={content} />}
-      {variant === "MOBILE" && <MobileVariant content={content} />}
     </Flex>
   );
 }

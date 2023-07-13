@@ -1,4 +1,12 @@
-import { Box } from "@/lib/ui";
 export default function Index() {
-  return <Box></Box>;
+  return null;
+}
+
+export function getServerSideProps() {
+  return {
+    redirect: {
+      destination: `/fips/intro`,
+      permanent: false,
+    },
+  };
 }
