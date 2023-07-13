@@ -10,7 +10,7 @@ import { ComponentProps } from "react";
 import { DocumentationLayout } from "../../layouts/Documentation/Documentation";
 import { parseNestedDir } from "@/lib/markdown/src/parseNestedDir";
 
-const CONTENT_DIR = ["fips"];
+const CONTENT_DIR = ["FIPs"];
 
 type Props = {
   slug: string;
